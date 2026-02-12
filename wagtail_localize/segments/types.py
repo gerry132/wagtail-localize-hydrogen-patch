@@ -80,6 +80,10 @@ class StringSegmentValue(BaseValue):
             attrs (dict, optional): A dict of HTML attributes that were stripped out of the string.
             order (int, optional): The index that this segment appears on a page.
         """
+        # Hydro specific patch to handle null vals
+        if string == None:
+            string = ""
+        
         if isinstance(string, str):
             string = StringValue.from_plaintext(string)
 
